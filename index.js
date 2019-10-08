@@ -20,7 +20,7 @@ app.get('/', (request, response) => {
 
 app.get('/users', db.getUsers)
 app.get('/users/:id', db.getUserById)
-app.get('/users/authenticate', db.authenticate)
+app.post('/authenticate', db.authenticate)
 
 app.post('/users', db.createUser)
 app.put('/users/:id', db.updateUser)

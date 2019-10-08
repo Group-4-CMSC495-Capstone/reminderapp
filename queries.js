@@ -12,8 +12,14 @@ const authenticate = (request, response) => {
 
     const {username, password} = request.body
 
+    console.log("TEST")
+
     pool.query('SELECT * FROM users WHERE username = $1 AND password= $2', [username, password], (error, results) => {
-        if (error || !results.rows) {
+
+        console.log(username)
+        console.log(password)
+
+        if (error) {
             response.status(400).json(error)
             return
         }

@@ -130,16 +130,16 @@ const updateUser = (request, response) => {
     )
 }
 
-/*const deleteUser = (request, response) => {
+const deleteReminder = (request, response) => {
     const id = parseInt(request.params.id)
 
-    pool.query('DELETE FROM users WHERE id = $1', [id], (error, results) => {
+    pool.query('DELETE FROM reminders WHERE event_id = $1', [id], (error, results) => {
         if (error) {
             response.status(400).json(error)
         }
         response.status(200).send(`User deleted with ID: ${id}`)
     })
-}*/
+}
 
 module.exports = {
     getUsers,
@@ -150,6 +150,7 @@ module.exports = {
     createReminder,
     getReminderById,
     getReminderByUserId,
-    authenticate
+    authenticate,
+    deleteReminder
     //deleteUser,
 }

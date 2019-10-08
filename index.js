@@ -30,7 +30,7 @@ app.get('/reminders/:id', db.getReminderById)
 app.get('/reminders/user/:id', db.getReminderByUserId)
 
 app.post('/reminders/:id', db.createReminder)
-//app.delete('/users/:id', db.deleteUser)
+app.delete('/reminders/:id', db.deleteUser)
 
 app.listen(port, () => {
     console.log(`App running on port ${port}.`)

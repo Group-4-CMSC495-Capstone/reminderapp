@@ -79,7 +79,7 @@ const getReminderById = (request, response) => {
 const getReminderByUserId = (request, response) => {
     const id = parseInt(request.params.id)
 
-    pool.query('SELECT * FROM reminders WHERE user_id = $1', [id], (error, results) => {
+    pool.query('SELECT * FROM reminders WHERE user_id = $1 ORDER BY notify_date DESC', [id], (error, results) => {
         if (error) {
             response.status(400).json(error)
             return
@@ -102,9 +102,9 @@ const createUser = (request, response) => {
 
 const createReminder = (request, response) => {
     const id = parseInt(request.params.id)
-    const {date, descr, notify_date, name} = request.body
+    const {date, description, notify_date, name} = request.body
 
-    pool.query('INSERT INTO reminders (date,descr,notify_date,user_id,event_name) VALUES ($1, $2, $3, $4,$5)', [date, descr, notify_date, id, name], (error, results) => {
+    pool.query('INSERT INTO reminders (date,descr,notify_date,user_id,event_name) VALUES ($1, $2, $3, $4,$5)', [date, description, notify_date, id, name], (error, results) => {
         if (error) {
             response.status(400).json(error)
             return

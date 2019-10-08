@@ -1,9 +1,9 @@
 const Pool = require('pg').Pool
 const pool = new Pool({
-    user: 'postgres',
-    host: 'localhost',
-    database: 'reminderapp',
-    password: 'admin',
+    user: 'cvogfomzqoijrb',
+    host: 'https://remind-a-p-p.herokuapp.com/',
+    database: 'dg6q97m1lj6c3',
+    password: 'ac8687544da4959b5c3c70e559659d5bfcca527035ee43e9169a8fbf64c31d56',
     port: 5432,
 })
 const getUsers = (request, response) => {

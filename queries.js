@@ -6,6 +6,23 @@ const pool = new Pool({
     password: 'ac8687544da4959b5c3c70e559659d5bfcca527035ee43e9169a8fbf64c31d56',
     port: 5432,
 })
+
+const authenticate = (request, response) => {
+    //const id = parseInt(request.params.id)
+
+    const {username, password} = request.body
+
+    pool.query('SELECT * FROM users WHERE username = $1 AND password= $2', [username, password], (error, results) => {
+        if (error || !results.rows) {
+            response.status(400).json(error)
+            return
+        }
+
+        response.status(200).json(results.rows)
+
+    })
+}
+
 const getUsers = (request, response) => {
     pool.query('SELECT * FROM users ORDER BY user_id ASC', (error, results) => {
         if (error) {
@@ -126,6 +143,7 @@ module.exports = {
     getReminders,
     createReminder,
     getReminderById,
-    getReminderByUserId
+    getReminderByUserId,
+    authenticate
     //deleteUser,
 }

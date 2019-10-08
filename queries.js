@@ -1,7 +1,7 @@
 const Pool = require('pg').Pool
 const pool = new Pool({
     user: 'cvogfomzqoijrb',
-    host: 'https://remind-a-p-p.herokuapp.com/',
+    host: 'ec2-174-129-43-40.compute-1.amazonaws.com',
     database: 'dg6q97m1lj6c3',
     password: 'ac8687544da4959b5c3c70e559659d5bfcca527035ee43e9169a8fbf64c31d56',
     port: 5432,

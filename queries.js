@@ -96,7 +96,7 @@ const createUser = (request, response) => {
             response.status(400).json(error)
             return
         }
-        response.status(201).send(`User added with ID: ${username}`)
+        response.status(201)////.send(`User added with ID: ${username}`)
     })
 }
 
@@ -109,7 +109,7 @@ const createReminder = (request, response) => {
             response.status(400).json(error)
             return
         }
-        response.status(201).send(`Reminder added with ID: ${name}`)
+        response.status(201)//.send(`Reminder added with ID: ${name}`)
     })
 }
 
@@ -125,7 +125,7 @@ const updateUser = (request, response) => {
                 response.status(400).json(error)
                 return
             }
-            response.status(200).send(`User modified with ID: ${id}`)
+            response.status(200)//.send(`User modified with ID: ${id}`)
         }
     )
 }
@@ -137,7 +137,7 @@ const deleteReminder = (request, response) => {
         if (error) {
             response.status(400).json(error)
         }
-        response.status(200).send(`User deleted with ID: ${id}`)
+        response.status(200)//.send(`User deleted with ID: ${id}`)
     })
 }
 

@@ -7,6 +7,25 @@ const pool = new Pool({
     port: 5432,
 })
 
+const getRemindersComingUp = (request, response) => {
+    //const id = parseInt(request.params.id)
+
+    var dateTime=new Date();
+    dateTime.setMilliseconds(0);
+    dateTime.setSeconds(0);
+
+    pool.query('SELECT * FROM reminders where notify_date = $1', [dateTime.toUTCString()], (error, results) => {
+
+        if (error) {
+            response.status(400).json(error)
+            return
+        }
+
+        response.status(200).json(results.rows)
+
+    })
+}
+
 const authenticate = (request, response) => {
     //const id = parseInt(request.params.id)
 
@@ -151,6 +170,7 @@ module.exports = {
     getReminderById,
     getReminderByUserId,
     authenticate,
-    deleteReminder
+    deleteReminder,
+    getRemindersComingUp,
     //deleteUser,
 }

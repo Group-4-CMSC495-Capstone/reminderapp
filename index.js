@@ -29,6 +29,8 @@ app.get('/reminders', db.getReminders)
 app.get('/reminders/:id', db.getReminderById)
 app.get('/reminders/user/:id', db.getReminderByUserId)
 
+app.get('/email/', db.getRemindersComingUp)
+
 app.post('/reminders/:id', db.createReminder)
 app.delete('/reminders/:id', db.deleteReminder)
 

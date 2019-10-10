@@ -56,7 +56,7 @@ function emailScheduler() {
 
                     console.log("Found reminder #" + index);
                     mailOptions.subject = "Reminder! " + emails[index].event_name;
-                    mailOptions.text = "Hello!\nHere's a reminder for: " + emails[index].descr + "\nAt: " + emails[index].notify_date + ", as you requested!";
+                    mailOptions.text = "Hello!\nHere's a reminder for: " + emails[index].descr + "\nAt: " + new Date(emails[index].notify_date) + ", as you requested!";
 
                     axios.get('https://remind-a-p-p.herokuapp.com/users/' + emails[index].user_id)
                         .then((data) => {

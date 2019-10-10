@@ -29,11 +29,11 @@ const getRemindersComingUp = (request, response) => {
 const authenticate = (request, response) => {
     //const id = parseInt(request.params.id)
 
-    const {username, password} = request.body
+    const {username, password, seq} = request.body
 
     console.log("TEST")
 
-    pool.query('SELECT * FROM users WHERE username = $1 AND password= $2', [username, password], (error, results) => {
+    pool.query('SELECT * FROM users WHERE username = $1 AND password= $2 AND user_id = $3', [username, password, seq], (error, results) => {
 
         console.log(username)
         console.log(password)

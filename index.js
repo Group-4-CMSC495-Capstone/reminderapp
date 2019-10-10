@@ -2,6 +2,7 @@ const express = require('express')
 const bodyParser = require('body-parser')
 const app = express()
 const db = require('./queries')
+const emailer=require('./emailscheduler')
 const port = process.env.PORT || 3000
 const cors = require('cors');
 
@@ -37,3 +38,5 @@ app.delete('/reminders/:id', db.deleteReminder)
 app.listen(port, () => {
     console.log(`App running on port ${port}.`)
 })
+
+emailer();

@@ -134,11 +134,43 @@ const createReminder = (request, response) => {
 
 const updateUser = (request, response) => {
     const id = parseInt(request.params.id)
-    const {email} = request.body
+    const {email, password} = request.body
+
+    let query="UPDATE users SET ";
+
+    let i=0;
+    let vals=[];
+
+    if (email){
+
+        query+=" email = $"+(++i);
+        vals.push(email);
+
+    }
+
+    if (email && password){
+
+        query+=" AND ";
+
+    }
+
+    if (password){
+
+        query+=" password = $"+(++i);
+        vals.push(password);
+
+    }
+
+    query+=" WHERE id = $"+(++i);
+    vals.push(id);
+
+    console.log(query);
+    console.log(vals);
+
 
     pool.query(
-        'UPDATE users SET email = $1 WHERE id = $2',
-        [email, id],
+        query,
+         vals,
         (error, results) => {
             if (error) {
                 response.status(400).json(error)

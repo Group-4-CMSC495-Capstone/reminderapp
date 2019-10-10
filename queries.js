@@ -161,7 +161,7 @@ const updateUser = (request, response) => {
 
     }
 
-    query+=" WHERE id = $"+(++i);
+    query+=" WHERE user_id = $"+(++i);
     vals.push(id);
 
     console.log(query);

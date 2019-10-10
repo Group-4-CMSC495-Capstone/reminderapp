@@ -33,7 +33,7 @@ const authenticate = (request, response) => {
 
     console.log("TEST")
 
-    pool.query('SELECT * FROM users WHERE username = $1 AND password= $2 AND user_id = $3', [username, password], (error, results) => {
+    pool.query('SELECT * FROM users WHERE username = $1 AND password= $2', [username, password], (error, results) => {
 
         console.log(username)
         console.log(password)

@@ -150,7 +150,7 @@ const updateUser = (request, response) => {
 
     if (email && password){
 
-        query+=" AND ";
+        query+=" , ";
 
     }
 

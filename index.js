@@ -29,6 +29,7 @@ app.put('/users/:id', db.updateUser)
 app.get('/reminders', db.getReminders)
 app.get('/reminders/:id', db.getReminderById)
 app.get('/reminders/user/:id', db.getReminderByUserId)
+app.put('/reminders/:id', db.updateReminder)
 
 app.get('/email/', db.getRemindersComingUp)
 

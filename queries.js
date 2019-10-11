@@ -181,6 +181,66 @@ const updateUser = (request, response) => {
     )
 }
 
+const updateReminder = (request, response) => {
+
+    const id = parseInt(request.params.id)
+    const {description, notify_date, name} = request.body
+
+    let vars=[description,notify_date,name];
+
+    //pool.query('INSERT INTO reminders (date,descr,notify_date,user_id,event_name) VALUES ($1, $2, $3, $4,$5)', [date, description, notify_date, id, name],
+
+    let query="UPDATE reminders SET ";
+
+    let i=0;
+    let vals=[];
+
+    let sets="";
+
+    for (let col in vars){
+
+        if (col){
+
+            switch(i){
+
+                case 0:sets+=" descr = $"+(++i); break;
+                case 1:sets+=" notify_date = $"+(++i); break;
+                case 2:sets+=" event_name = $"+(++i); break;
+
+            }
+
+            sets+=",";
+            vals.push(col);
+
+        }
+        i++;
+
+    }
+
+    if (query.size===0){
+
+        response.status(200).json(`No values to update.`);
+        return;
+
+    }
+
+    query+=sets.substring(0, query.length-1)+" WHERE event_id = $"+(++i);
+
+    console.log(query);
+
+    pool.query(
+        query,
+        vals,
+        (error, results) => {
+            if (error) {
+                response.status(400).json(error)
+                return
+            }
+            response.status(200).json(`Reminder modified with ID: ${id}`)
+        }
+    )
+}
+
 const deleteReminder = (request, response) => {
     const id = parseInt(request.params.id)
 
@@ -204,5 +264,6 @@ module.exports = {
     authenticate,
     deleteReminder,
     getRemindersComingUp,
+    updateReminder,
     //deleteUser,
 }

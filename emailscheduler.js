@@ -1,4 +1,4 @@
-function emailScheduler() {
+//function emailScheduler() {
     const axios = require('axios');
 
     const nodemailer = require('nodemailer');
@@ -110,6 +110,6 @@ function emailScheduler() {
     updateTime();
     setInterval(refreshCache, 60000);
     setInterval(updateTime, 5000);
-}
+//}
 
-module.exports=emailScheduler;
+//module.exports=emailScheduler;

@@ -22,14 +22,14 @@
 
     function updateTime() {
 
-        let test=new Date().getSeconds();
+        /*let test=new Date().getSeconds();
 
         if (test===0){
 
             console.log("0 seconds!!! Refreshing Cache.");
             refreshCache();
 
-        }
+        }*/
 
 
         //var dateTime=new Date();

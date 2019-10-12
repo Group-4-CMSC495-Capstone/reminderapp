@@ -228,7 +228,7 @@ const updateReminder = (request, response) => {
 
     }
 
-    query+=sets.substring(0, query.length-1)+" WHERE event_id = $"+(++i);
+    query+=sets.substring(0, sets.length-1)+" WHERE event_id = $"+(++i);
 
     vals.push(id);
 

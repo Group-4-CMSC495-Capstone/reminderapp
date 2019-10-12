@@ -202,7 +202,8 @@ const updateReminder = (request, response) => {
     for (let col in vars){
 
         console.log("COL: "+vars[col]);
-        console.log("LENGTH: "+vars[col].length)
+        console.log("LENGTH: "+vars[col].length);
+        console.log("LENGTH > 0? "+vars[col].length>0);
 
         if (vars[col].length>0){
 
@@ -224,7 +225,7 @@ const updateReminder = (request, response) => {
 
     }
 
-    if (sets.size===0){
+    if (sets.length===0){
 
         response.status(200).json(`No values to update.`);
         return;

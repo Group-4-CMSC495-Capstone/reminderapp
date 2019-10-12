@@ -230,6 +230,8 @@ const updateReminder = (request, response) => {
 
     query+=sets.substring(0, query.length-1)+" WHERE event_id = $"+(++i);
 
+    vals.push(id);
+
     console.log(query);
     console.log(vals);
 

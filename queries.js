@@ -199,6 +199,8 @@ const updateReminder = (request, response) => {
 
     for (let col in vars){
 
+        console.log("COL: "+col);
+
         if (col.length!==0){
 
             switch(i){
@@ -217,7 +219,7 @@ const updateReminder = (request, response) => {
 
     }
 
-    if (query.size===0){
+    if (sets.size===0){
 
         response.status(200).json(`No values to update.`);
         return;

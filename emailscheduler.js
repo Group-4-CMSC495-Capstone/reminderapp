@@ -6,8 +6,8 @@
     const transporter = nodemailer.createTransport({
         service: 'gmail',
         auth: {
-            user: 'reminderappemails@gmail.com',
-            pass: 'https://group-4-cmsc495-capstone.github.io/'
+            user: process.env.EMAIL_USER,
+            pass: process.env.EMAIL_PW
         }
     });
 

@@ -188,6 +188,8 @@ const updateReminder = (request, response) => {
 
     let vars=[description,notify_date,name];
 
+    console.log("SENT: "+vars);
+
     //pool.query('INSERT INTO reminders (date,descr,notify_date,user_id,event_name) VALUES ($1, $2, $3, $4,$5)', [date, description, notify_date, id, name],
 
     let query="UPDATE reminders SET ";

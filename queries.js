@@ -199,20 +199,22 @@ const updateReminder = (request, response) => {
 
     for (let col in vars){
 
-        console.log("COL: "+col);
+        console.log("COL: "+vars[col]);
 
-        if (col.length!==0){
+        if (vars[col].length!==0){
 
             switch(i){
 
-                case 0:sets+=" descr = $"+(++i); break;
-                case 1:sets+=" notify_date = $"+(++i); break;
-                case 2:sets+=" event_name = $"+(++i); break;
+                case 0:sets+=" descr = $"+(++i);
+                    vals.push(vars[col]); break;
+                case 1:sets+=" notify_date = $"+(++i);
+                    vals.push(vars[col]); break;
+                case 2:sets+=" event_name = $"+(++i);
+                    vals.push(vars[col]);  break;
 
             }
 
             sets+=",";
-            vals.push(col);
 
         }
         i++;

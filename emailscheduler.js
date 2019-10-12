@@ -22,16 +22,6 @@
 
     function updateTime() {
 
-        /*let test=new Date().getSeconds();
-
-        if (test===0){
-
-            console.log("0 seconds!!! Refreshing Cache.");
-            refreshCache();
-
-        }*/
-
-
         //var dateTime=new Date();
         //dateTime.setMilliseconds(0);
         //dateTime.setSeconds(0);
@@ -71,7 +61,7 @@
                     axios.get('https://remind-a-p-p.herokuapp.com/users/' + emails[index].user_id)
                         .then((data) => {
 
-                            console.log(data);
+                            //console.log(data);
 
                             mailOptions.to = data.data[0].email;
                             console.log(mailOptions);
@@ -83,9 +73,10 @@
                                     console.log('Email sent. ');// + info.response);
                                 }
                             });
-
+                            setTimeout(function(){refreshCache(emails[index].event_id)},60000);
                             sentMails.set(emails[index].event_id, true);
                             console.log(sentMails);
+
 
                         })
                         .catch((error) => {
@@ -108,11 +99,11 @@
 
     }
 
-    function refreshCache() {
+    function refreshCache(id) {
 
-        sentMails = new Map();
+        sentMails.delete(id);
 
-        console.log("Cache refreshed!");
+        console.log("Cache refreshed! Removed "+id);
 
     }
 

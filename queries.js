@@ -209,6 +209,8 @@ const updateReminder = (request, response) => {
 
         if (vars[col].length!==0){
 
+            console.log(vars[col].length+" !== 0!");
+
             switch(parseInt[col]){
 
                 case 0:sets+=" descr = $"+(++i);
@@ -227,7 +229,7 @@ const updateReminder = (request, response) => {
 
     }
 
-    if (sets.length===0){
+    if (sets.length===1){
 
         response.status(200).json(`No values to update.`);
         return;

@@ -205,6 +205,8 @@ const updateReminder = (request, response) => {
         console.log("LENGTH: "+vars[col].length);
         console.log("LENGTH > 0? "+vars[col].length>0);
 
+        console.log(typeof col+" "+typeof vars[col]+" "+typeof vars[col].length);
+
         if (vars[col].length!==0){
 
             switch(col){

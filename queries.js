@@ -204,9 +204,9 @@ const updateReminder = (request, response) => {
         console.log("COL: "+vars[col]);
         console.log("LENGTH: "+vars[col].length)
 
-        if (vars[col].length!==0){
+        if (vars[col].length>0){
 
-            switch(i){
+            switch(col){
 
                 case 0:sets+=" descr = $"+(++i);
                     vals.push(vars[col]); break;

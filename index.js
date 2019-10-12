@@ -2,7 +2,7 @@ const express = require('express')
 const bodyParser = require('body-parser')
 const app = express()
 const db = require('./queries')
-const emailer=require('./emailscheduler')
+//const emailer=require('./emailscheduler')
 const port = process.env.PORT || 3000
 const cors = require('cors');
 

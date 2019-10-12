@@ -1,11 +1,19 @@
 const Pool = require('pg').Pool
-const pool = new Pool({
-    user: 'cvogfomzqoijrb',
-    host: 'ec2-174-129-43-40.compute-1.amazonaws.com',
-    database: 'dg6q97m1lj6c3',
-    password: 'ac8687544da4959b5c3c70e559659d5bfcca527035ee43e9169a8fbf64c31d56',
-    port: 5432,
-})
+const url = require('url')
+
+const params = url.parse(process.env.DATABASE_URL);
+const auth = params.auth.split(':');
+
+const config = {
+    user: auth[0],
+    password: auth[1],
+    host: params.hostname,
+    port: params.port,
+    database: params.pathname.split('/')[1],
+    ssl: true
+};
+
+const pool = new Pool(config);
 
 const getRemindersComingUp = (request, response) => {
     //const id = parseInt(request.params.id)

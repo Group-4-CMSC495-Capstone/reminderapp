@@ -202,6 +202,7 @@ const updateReminder = (request, response) => {
     for (let col in vars){
 
         console.log("COL: "+vars[col]);
+        console.log("LENGTH: "+vars[col].length)
 
         if (vars[col].length!==0){
 

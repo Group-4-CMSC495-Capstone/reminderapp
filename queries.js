@@ -199,7 +199,7 @@ const updateReminder = (request, response) => {
 
     for (let col in vars){
 
-        if (col){
+        if (col.length!==0){
 
             switch(i){
 

@@ -22,6 +22,16 @@
 
     function updateTime() {
 
+        let test=new Date().getSeconds();
+
+        if (test===0){
+
+            console.log("0 seconds!!! Refreshing Cache.");
+            refreshCache();
+
+        }
+
+
         //var dateTime=new Date();
         //dateTime.setMilliseconds(0);
         //dateTime.setSeconds(0);
@@ -70,7 +80,7 @@
                                 if (error) {
                                     console.log(error);
                                 } else {
-                                    console.log('Email sent: ' + info.response);
+                                    console.log('Email sent. ');// + info.response);
                                 }
                             });
 
@@ -108,8 +118,8 @@
 
 
     updateTime();
-    setInterval(refreshCache, 60000);
-    setInterval(updateTime, 5000);
+    //setInterval(refreshCache, 60000);
+    setInterval(updateTime, 1000);
 //}
 
 //module.exports=emailScheduler;

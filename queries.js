@@ -217,7 +217,7 @@ const updateReminder = (request, response) => {
             sets+=",";
 
         }
-        i++;
+        //i++;
 
     }
 

@@ -211,13 +211,13 @@ const updateReminder = (request, response) => {
 
             console.log(vars[col].length+" !== 0!");
 
-            switch(parseInt[col]){
+            switch(col){
 
-                case 0:sets+=" descr = $"+(++i);
+                case '0':sets+=" descr = $"+(++i);
                     vals.push(vars[col]); break;
-                case 1:sets+=" notify_date = $"+(++i);
+                case '1':sets+=" notify_date = $"+(++i);
                     vals.push(vars[col]); break;
-                case 2:sets+=" event_name = $"+(++i);
+                case '2':sets+=" event_name = $"+(++i);
                     vals.push(vars[col]);  break;
 
             }

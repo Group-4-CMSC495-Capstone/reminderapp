@@ -209,7 +209,7 @@ const updateReminder = (request, response) => {
 
         if (vars[col].length!==0){
 
-            switch(col){
+            switch(parseInt[col]){
 
                 case 0:sets+=" descr = $"+(++i);
                     vals.push(vars[col]); break;
